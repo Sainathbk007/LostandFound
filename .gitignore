@@ -1,0 +1,10 @@
+# Ignore local configuration with secrets
+includes/config.php
+
+# Ignore uploaded files
+uploads/
+
+# Ignore OS files
+Thumbs.db
+ehthumbs.db
+.DS_Store

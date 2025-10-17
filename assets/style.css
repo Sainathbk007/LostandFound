@@ -1,0 +1,113 @@
+:root{
+	--bg:#f7f9fc;
+	--surface:#ffffff;
+	--muted:#6c757d;
+	--accent:#0d6efd;
+	--accent-600:#0b5ed7;
+	--radius:12px;
+	--shadow: 0 6px 24px rgba(18,38,63,0.08);
+	--glass: rgba(255,255,255,0.6);
+	--max-width:1100px;
+	--text:#23262b;
+}
+
+/* Dark theme (prefers-color-scheme fallback) */
+@media (prefers-color-scheme: dark) {
+	:root { --bg: #0f1720; --surface: #0b1220; --muted: #9aa4b2; --text: #e6eef8; --glass: rgba(255,255,255,0.03); }
+}
+
+/* Explicit dark theme class */
+
+
+/* Load Inter from Google Fonts (optional: will fetch at runtime) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+/* Base layout */
+html,body{height:100%;}
+body{
+	padding-top:70px;
+	background: linear-gradient(180deg,#f8fbff 0%, var(--bg) 100%);
+	color:var(--text);
+	font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	line-height:1.55;
+}
+
+.container{max-width:var(--max-width);}
+
+/* Top nav spacing override for fixed navbars */
+.navbar{backdrop-filter: blur(4px);}
+
+/* Cards */
+.card{
+	border-radius:var(--radius);
+	background:var(--surface);
+	box-shadow:var(--shadow);
+	border: 1px solid rgba(105, 129, 160, 0.04);
+}
+.card .card-title{font-weight:700;letter-spacing:0.2px}
+
+/* Card header accent */
+.card-header{background:linear-gradient(90deg, rgba(122, 138, 163, 0.06), transparent); border-bottom: none;}
+
+/* Buttons */
+.btn-primary{
+	background:linear-gradient(180deg,var(--accent), var(--accent-600));
+	border-color:var(--accent);
+	box-shadow: 0 6px 18px rgba(13,110,253,0.12);
+	transition: transform .08s ease, box-shadow .12s ease;
+}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-outline-custom{border:1px solid rgba(35,38,43,0.08); color:var(--text); background:transparent}
+
+/* Forms */
+input.form-control, textarea.form-control, select.form-select{
+	border-radius:8px; border:1px solid rgba(35,38,43,0.08); padding:.625rem .75rem;
+	background:linear-gradient(180deg, #fff, #fbfdff);
+}
+input.form-control:focus, textarea:focus, select:focus{box-shadow:0 8px 20px rgba(13,110,253,0.06); border-color:var(--accent)}
+
+/* Thumbnails */
+img.card-img-top{border-top-left-radius:var(--radius); border-top-right-radius:var(--radius); object-fit:cover}
+
+/* Tables */
+.table{background:transparent}
+.table thead th{background:transparent; border-bottom:2px solid rgba(18,38,63,0.04); font-weight:600}
+.table tbody tr{background:var(--surface)}
+.table tbody td{vertical-align:middle}
+
+/* Small utility */
+.muted{color:var(--muted)}
+.text-muted{color:var(--muted)}
+
+/* Toast stacking */
+.toast{z-index:1200}
+
+/* Responsive tweaks */
+@media (max-width:767px){
+	.container{padding-left:1rem;padding-right:1rem}
+	body{padding-top:64px}
+}
+
+/* Footer */
+footer{margin-top:3rem;padding:2rem 0;color:var(--muted)}
+
+/* Tiny helpers */
+.badge-soft{background:rgba(13,110,253,0.08); color:var(--accent); padding:.25rem .5rem; border-radius:6px; font-weight:600}
+
+/* Utility: force white cards in a scoped area */
+.white-cards .card,
+.found-page .card{
+	background: #ffffff;
+	color: #23262b;
+	border-color: rgba(18,38,63,0.04);
+	box-shadow: 0 4px 12px rgba(18,38,63,0.04);
+	transition: box-shadow .18s ease, transform .12s ease;
+}
+.white-cards .card:hover, .found-page .card:hover{ transform: translateY(-4px); box-shadow: 0 10px 30px rgba(18,38,63,0.06); }
+.white-cards .card .card-title, .white-cards .card .card-text,
+.found-page .card .card-title, .found-page .card .card-text{
+	color: #23262b;
+}
+
