@@ -7,7 +7,7 @@ if (file_exists(__DIR__ . '/config.php')) {
     // Fallback values (update or create includes/config.php from includes/config.example.php)
     $db_host = 'localhost';
     $db_user = 'root';
-    $db_pass = 'Kalyankar@007';
+    $db_pass = '';
     $db_name = 'lost_and_found';
 }
 
